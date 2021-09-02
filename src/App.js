@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useState } from "react";
+import TodoTemplate from "./components/TodoTemplate";
+import TodoInsert from "./components/TodoInsert";
+import TodoList from "./components/TodoList";
 
-function App() {
+const App = () => {
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      text: "Search React Basic",
+      checked: true,
+    },
+    {
+      id: 2,
+      text: "Search Styling",
+      checked: true,
+    },
+    {
+      id: 3,
+      text: "Making Todo App",
+      checked: false,
+    },
+  ]);
   return (
-    <div className="App">
-      Hello World
-    </div>
+    <TodoTemplate>
+      <TodoInsert />
+      <TodoList todos={todos} />
+    </TodoTemplate>
   );
-}
+};
 
 export default App;
